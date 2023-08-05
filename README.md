@@ -1,3 +1,10 @@
+<b>Pre-Assumptions</b>
+
+-   All the tasks and notes will be visible to all the users, data visibility is not user based
+-   No update and Delete functionality is needed for tasks and notes
+-   Storing attachments in storage system rather than as blob in database
+-   No Paginated records in retrieve task list
+
 <b>Dependencies :</b>
 
 -   OS : Ubuntu 18.04

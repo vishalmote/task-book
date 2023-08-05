@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
+})->name('login');
+
+Route::get('/register', function () {
+    return view('register');
+})->name('register');
+
+Route::fallback(function () {
+    return Redirect::to('/');
 });
