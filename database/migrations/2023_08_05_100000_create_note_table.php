@@ -18,6 +18,7 @@ return new class extends Migration
             $table->json('attachments');
             $table->unsignedBigInteger('task_id');
             $table->timestamps();
+            $table->softDeletes();
             $table->foreign('task_id')->references('id')->on('task');
         });
     }

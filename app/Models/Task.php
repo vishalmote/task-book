@@ -11,6 +11,15 @@ class Task extends Model
 
     protected $table = 'task';
     use SoftDeletes;
+    protected $fillable = [
+        'subject',
+        'description',
+        'start_date',
+        'due_date',
+        'status',
+        'priority',
+        'created_by_id'
+    ];
     public function notes(): HasMany
     {
         return $this->hasMany(Note::class);

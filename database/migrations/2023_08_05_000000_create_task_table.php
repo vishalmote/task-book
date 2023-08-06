@@ -21,6 +21,7 @@ return new class extends Migration
             $table->enum('priority', ['High', 'Medium', 'Low']);
             $table->unsignedBigInteger('created_by_id');
             $table->timestamps();
+            $table->softDeletes();
             $table->foreign('created_by_id')->references('id')->on('users');
         });
     }

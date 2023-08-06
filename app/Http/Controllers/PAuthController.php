@@ -74,7 +74,7 @@ class PAuthController extends Controller
         } else {
             return response()->json([
                 'status' => 'error',
-                'data' => ['errorList' => ['Invalid Credentials']]
+                'data' => ['messageList' => ['Invalid Credentials']]
             ], 200);
         }
     }
@@ -90,8 +90,18 @@ class PAuthController extends Controller
         } else {
             return response()->json([
                 'status' => 'error',
-                'data' => ['errorList' => ['unauthorized' => 'unauthorized']]
+                'data' => ['messageList' => ['unauthorized' => 'unauthorized']]
             ], 200);
         }
+    }
+
+
+    public function logout(Request $request)
+    {
+        $request->user()->token()->revoke();
+        return response()->json([
+            'status' => 'success',
+            'data' => ['messageList' => ['logged_out_successfully']]
+        ], 200);
     }
 }

@@ -37,7 +37,7 @@ class Handler extends ExceptionHandler
         $this->renderable(function (\Illuminate\Auth\AuthenticationException $e) {
             return response()->json([
                 'status' => 'error',
-                'data' => ['errorList' => ['unauthorized' => 'unauthorized']]
+                'data' => ['messageList' => ['unauthorized' => 'unauthorized']]
             ], 200);
         });
 
@@ -45,7 +45,7 @@ class Handler extends ExceptionHandler
             if ($request->is('api/*')) {
                 return response()->json([
                     'status' => 'error',
-                    'data' => ['errorList' => ['Internal Server Error2']]
+                    'data' => ['messageList' => ['Internal Server Error2']]
                 ], 200);
             }
             if ($request->is('*')) {

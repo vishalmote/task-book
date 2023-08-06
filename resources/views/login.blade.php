@@ -45,8 +45,8 @@
                             $.each(data.data.validationErrorList, function(prefix, val) {
                                 $('.' + prefix + '_error').text(val[0]);
                             });
-                        } else if (data.data.errorList) {
-                            $('#show_error').text(data.data.errorList[0]);
+                        } else if (data.data.messageList) {
+                            $('#show_error').text(data.data.messageList[0]);
                         }
                         return;
                     }
@@ -59,30 +59,33 @@
 </head>
 
 <body>
-    <div class="col-lg-4 col-md-4">
-        <form action="{{ route('api.login') }}" method="POST" id="login_form" class="request-form ">
-            <h2>Login</h2>
+    <div class="row">
+        <div class="col-lg-4 col-md-4">&nbsp;</div>
+        <div class="col-lg-4 col-md-4">
+            <form action="{{ route('api.login') }}" method="POST" id="login_form" class="request-form ">
+                <h2>Login</h2>
 
-            <div class="form-group mr-2">
-                <label for="" class="label">Email</label>
-                <input type="email" id="email" class="form-control">
-                <span class="text-danger error-text email_error" style="color: red"></span>
-            </div>
+                <div class="form-group mr-2">
+                    <label for="" class="label">Email</label>
+                    <input type="email" id="email" class="form-control">
+                    <span class="text-danger error-text email_error" style="color: red"></span>
+                </div>
 
-            <div class="form-group mr-2">
-                <label for="" class="label">Password</label>
-                <input type="password" id="password" class="form-control">
-                <span class="text-danger error-text password_error" style="color: red"></span>
-            </div>
-            <div id="show_error" style="color: red"> </div>
+                <div class="form-group mr-2">
+                    <label for="" class="label">Password</label>
+                    <input type="password" id="password" class="form-control">
+                    <span class="text-danger error-text password_error" style="color: red"></span>
+                </div>
+                <div id="show_error" style="color: red"> </div>
 
-            <div class="form-group">
-                <input type="button" onclick="submitForm()" value="Login" class="btn  py-3 px-4" style="background-color: #5f76e8; color:#ffffff">
-            </div>
-            <div class="form-group">
-                <a href="{{ url('/register') }}">Register</a>
-            </div>
-        </form>
+                <div class="form-group">
+                    <input type="button" onclick="submitForm()" value="Login" class="btn  py-3 px-4" style="background-color: #5f76e8; color:#ffffff">
+                </div>
+                <div class="form-group">
+                    <a href="{{ url('/register') }}">Register</a>
+                </div>
+            </form>
+        </div>
     </div>
 </body>
 
