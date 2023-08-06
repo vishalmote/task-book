@@ -18,8 +18,16 @@
             }
         }
 
+        function setHeader() {
+            header = {
+                "Authorization": "Bearer " + localStorage.getItem("token")
+
+            };
+        }
+
         function checkLogin() {
             console.log('>>>>>>checkLogin<<<<<<');
+            setHeader();
             $.ajax({
                 url: "{{ route('api.me')}}",
                 type: "POST",
@@ -40,6 +48,7 @@
 
         function logout() {
             console.log('>>>>>>logout<<<<<<');
+            setHeader();
             $.ajax({
                 url: "{{ route('api.logout')}}",
                 type: "POST",
@@ -94,6 +103,7 @@
 
         function submitTask() {
             console.log('>>>>>>submitTask<<<<<<');
+            setHeader();
             let formData = $("#task_form").serializeArray();
             let finalData = new FormData();
             for (let i = 0; i < formData.length; i++) {
@@ -145,6 +155,7 @@
 
         function listTask() {
             console.log('>>>>>>listTask<<<<<<');
+            setHeader();
             let formData = $("#filter_form").serializeArray();
             let finalData = new FormData();
             for (let i = 0; i < formData.length; i++) {
